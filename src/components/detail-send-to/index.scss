@@ -1,0 +1,87 @@
+.container {
+  width: 750px;
+  background: #fff;
+
+  .main {
+    width: 690px;
+    padding-bottom: 30px;
+    margin: 0 auto;
+
+    .shop-info {
+      display: flex;
+      align-items: center;
+      padding: 30px 0 24px 0;
+
+      .shop-logo {
+        width: 75px;
+        height: 45px;
+
+        .shop-icon {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+        }
+      }
+
+      .shop-name {
+        font-size: 28px;
+        color: rgb(137, 137, 137);
+      }
+    }
+
+    .send-to {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .title {
+        display: inline-block;
+        height: 40px;
+        font-size: 28px;
+        font-family: "PingFangSC-Regular";
+        color: rgb(137, 137, 137);
+        width: 75px;
+      }
+
+      .address-info {
+        display: inline-block;
+        vertical-align: middle;
+        width: 550px;
+        height: 40px;
+        font-size: 28px;
+        font-family: "PingFangSC-Medium";
+        color: rgb(37, 37, 37);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .address-img {
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        vertical-align: middle;
+        width: 36px;
+        height: 8px;
+        background-image: url(https://m.360buyimg.com/img/jfs/t1/96156/23/4072/889/5de5bb13E799239e2/3cbf5b5093cd79a2.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-position: center;
+      }
+    }
+
+    .promise {
+      .promise-info {
+        padding-top: 8px;
+        padding-left: 75px;
+        font-size: 28px;
+        color: rgb(137, 137, 137);
+      }
+
+      .promise-info.pre-sale {
+        color: #0ec802;
+      }
+    }
+  }
+}
