@@ -1,5 +1,6 @@
 const babel = require('rollup-plugin-babel')
 const resolve = require('rollup-plugin-node-resolve')
+const postcss = require('@7fresh/rollup-plugin-postcss')
 const commonjs = require('rollup-plugin-commonjs')
 const builtins = require('rollup-plugin-node-builtins')
 const replace = require('rollup-plugin-replace')

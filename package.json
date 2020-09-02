@@ -24,12 +24,17 @@
     "UI"
   ],
   "author": "PAIMAI H5 TEAM",
+  "files": [
+    "dist/build"
+  ],
   "license": "ISC",
   "dependencies": {
+    "@7fresh/rollup-plugin-postcss": "^2.0.5",
     "@storybook/addon-knobs": "^5.3.17",
     "@storybook/react": "^5.3.17",
     "core-js": "^3.1.4",
     "iscroll": "^5.2.0",
+    "node-sass": "^4.14.1",
     "prop-types": "^15.6.2",
     "qrcode.react": "^1.0.0",
     "react": "^16.12.0",
