@@ -49,10 +49,9 @@ export default class Recommend extends Component {
 
   // 跳转商详页面
   gotoDetail = data => {
-    const skuId = data && data.id;
-    MPing.logClick("Mauction_NewvipProuduct_RecommendCard", "", "", skuId);
-    if (skuId) {
-      window.location.href = `https://mpaimai.jd.com/${skuId}`;
+    const { gotoDetail } = this.props;
+    if (gotoDetail && typeof gotoDetail === "function") {
+      gotoDetail(data);
     }
   };
 

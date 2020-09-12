@@ -16,7 +16,7 @@ export default class GoodsSw extends Component {
             itemWidth={750}
             itemHeight={750}
             duration={3000}
-            auto
+            auto={false}
             loop={false}
             activeIndex={0}
             speed={1}

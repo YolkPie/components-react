@@ -4,44 +4,17 @@ import { filterImg } from "../../utils";
 import { MPing } from "../../points";
 
 export default class Shop extends Component {
-  // 跳转店铺
-  gotoShop = e => {
-    e && e.stopPropagation();
-    const { auctionBaseInfo, shopMessage } = this.props;
-    const skuId = auctionBaseInfo && auctionBaseInfo.skuId;
-    const shopId = shopMessage && shopMessage.shopId;
-    const json = {
-      shopId
-    };
-    MPing.logClick(
-      "Mauction_NewvipProuduct_ShopCardConnectService",
-      JSON.stringify(json),
-      "",
-      skuId
-    );
-    if (shopId) {
-      window.location.href = `https://shop.m.jd.com/?shopId=${shopId}`;
+  gotoShop = () => {
+    const { gotoShop } = this.props;
+    if (gotoShop && typeof gotoShop === "function") {
+      gotoShop();
     }
   };
 
-  // 联系客服
-  shopContact = e => {
-    e && e.stopPropagation();
-    const { auctionBaseInfo, shopMessage } = this.props;
-    const venderId = shopMessage && shopMessage.venderId;
-    const skuId = auctionBaseInfo && auctionBaseInfo.skuId;
-    const json = {
-      venderId
-    };
-    MPing.logClick(
-      "Mauction_NewvipProuduct_ShopCardConnectService",
-      JSON.stringify(json),
-      "",
-      skuId
-    );
-    if (venderId) {
-      window.location.href = `https://jdcs.m.jd.com/chat/index.action?venderId=${venderId}&entry=m_shop`;
-      // window.location.href = `https://jdcs.m.jd.com/chat/index.action?venderId=${venderId}&entry=m_shop&sku=${skuId}`;
+  shopContact = () => {
+    const { shopContact } = this.props;
+    if (shopContact && typeof shopContact === "function") {
+      shopContact();
     }
   };
 
@@ -54,7 +27,10 @@ export default class Shop extends Component {
             <div
               styleName="shop-main"
               onClick={e => {
-                this.gotoShop(e);
+                if (e) {
+                  e.stopPropagation();
+                }
+                this.gotoShop();
               }}
             >
               <div styleName="shop-logo-container">
@@ -75,7 +51,10 @@ export default class Shop extends Component {
                   <div
                     styleName="shop-contact"
                     onClick={e => {
-                      this.shopContact(e);
+                      if (e) {
+                        e.stopPropagation();
+                      }
+                      this.shopContact();
                     }}
                   >
                     <div styleName="shop-contact-icon" />
