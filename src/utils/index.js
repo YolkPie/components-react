@@ -1,16 +1,11 @@
-import {
-  userDefaultPicture,
-  productDefaultPicture,
-  solitaireDefaultPicture,
-  defaultlogo,
-  logo
-} from "../components/product-picture/image";
-
 /**
  * 单位转换：px转换为vw
  * @function
  * @param {number} value 数值
  */
+// 价格格式化
+import numeral from "numeral";
+
 export const px2vw =
   process.env.NODE_ENV === "mstone"
     ? number => `${number / 2}px`
@@ -57,47 +52,32 @@ export const getImageAspect = img => {
   return width / height;
 };
 
-export function filterImg(img, str) {
-  let value = "";
-  if (str === "solitaire") {
-    value = img || solitaireDefaultPicture;
-  } else if (str === "shoplogo") {
-    value = img || defaultlogo;
-  } else if (str === "user") {
-    value = img || userDefaultPicture;
-  } else if (str === "logo") {
-    value = img || logo;
-  } else {
-    value = img || productDefaultPicture;
-  }
-
+export function filterImg(img, w_h) {
+  const img_w_h = w_h || "800x800";
+  let value = img;
   if (value) {
+    // 加域名
+    if (value.indexOf("jfs") === 0) {
+      value = `https://img10.360buyimg.com/xstore/s${img_w_h}_${img}`;
+    }
     // 图片压缩
-    if (
-      value.indexOf("storage.360buyimg.com") <= -1 &&
-      value.indexOf("storage.jd.com") <= -1
-    ) {
-      if (value.indexOf("!q70") <= -1) {
-        value += "!q70";
-      }
-      if (value.indexOf(".dpg") <= -1) {
-        value += ".dpg";
-      }
+    if (value.indexOf("!q70") === -1) {
+      value += "!q70";
+    }
+    if (value.indexOf(".dpg") === -1) {
+      value += ".dpg";
+    }
+    if (value.indexOf("//") === -1) {
+      value = `https://${value}`;
+    } else if (value.indexOf("http") === -1) {
+      value = `https:${value}`;
+    } else if (value.indexOf("http") > -1 && value.indexOf("https") === -1) {
+      const str = value.split("http:")[1];
+      value = `https:${str}`;
     }
     if (value.indexOf("webp") > -1) {
       value = value.replace(".webp", "");
     }
-    if (value.indexOf("//") <= -1) {
-      return `https://${value}`;
-    }
-    if (value.indexOf("http") <= -1) {
-      return `https:${value}`;
-    }
-    if (value.indexOf("http") > -1 && value.indexOf("https") <= -1) {
-      return `https:${value.split("http:")[1]}`;
-    }
-
-    return value;
   }
   return value;
 }
@@ -476,4 +456,33 @@ export const accSub = (arg1, arg2) => {
 // eslint-disable-next-line no-extend-native
 Number.prototype.sub = function(arg) {
   return accSub(arg, this);
+};
+export const formatPrice = n => {
+  const formatNum = n.toString().split(".");
+  const len =
+    formatNum &&
+    Array.isArray(formatNum) &&
+    formatNum.length > 1 &&
+    formatNum[1].length;
+  let formatStr = "0,0";
+  if (len === 1) {
+    formatStr = "0,0.0";
+  } else if (len === 2) {
+    formatStr = "0,0.00";
+  }
+  return numeral(n).format(formatStr);
+};
+
+export const pxToVw = _s => {
+  // 匹配: px vw
+  /* eslint-disable no-useless-escape */
+  const reg = /(\:|: )+(\d)+(px)/gi;
+  let newStr = _s.replace(reg, function(_x) {
+    _x = _x.replace(/(\:|: )/, "").replace(/px/i, "");
+    return `:${px2vw(parseFloat(_x))}`;
+  });
+
+  newStr = newStr.replace(/<br\/?>|&nbsp;|\n|\s*\n\s*/g, "");
+
+  return newStr;
 };

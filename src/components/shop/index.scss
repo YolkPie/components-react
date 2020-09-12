@@ -1,0 +1,103 @@
+.shop-container {
+  width: 750px;
+  height: 154px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 24px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .shop-main {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 750px;
+    height: 154px;
+
+    .shop-logo-container {
+      width: 148px;
+      height: 148px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .shop-logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
+    }
+
+    .shop-info {
+      display: flex;
+      flex-direction: column;
+
+      .shop-name {
+        max-width: 540px;
+        color: #262626;
+        font-size: 26px;
+        font-weight: bold;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+
+        /*! autoprefixer: ignore next */
+        -webkit-box-orient: vertical;
+      }
+
+      .shop-ext {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-top: 22px;
+
+        .shop-follow {
+          font-size: 22px;
+          color: #8c8c8c;
+          padding-right: 38px;
+        }
+
+        .shop-contact {
+          display: flex;
+          flex-direction: row;
+          border: 1px solid rgba(151, 151, 151, 0.6);
+          border-radius: 20px;
+          align-items: center;
+          padding: 1px 10px;
+
+          .shop-contact-icon {
+            width: 26px;
+            height: 20px;
+            background-image: url("https://m.360buyimg.com/img/jfs/t1/130353/32/8730/637/5f4c6544E81012a59/ca24871d7534b45a.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+
+          .shop-contact-txt {
+            font-size: 20px;
+            color: #252525;
+            padding-left: 4px;
+          }
+        }
+      }
+    }
+
+    .more-icon {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 30px;
+      bottom: 0;
+      width: 30px;
+      height: 30px;
+      background-image: url("https://m.360buyimg.com/img/jfs/t1/114333/36/14808/1006/5f48b19aE54b63891/233e865a907906d6.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 12px 24px;
+    }
+  }
+}

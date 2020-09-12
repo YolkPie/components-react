@@ -1,0 +1,57 @@
+.belt-container {
+  position: relative;
+  z-index: 1;
+  width: 750px;
+  height: 106px;
+  background: linear-gradient(
+    270deg,
+    rgba(242, 20, 12, 1) 0%,
+    rgba(255, 108, 51, 1) 100%
+  );
+  border-top-right-radius: 11px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -8px;
+
+  .left {
+    height: 106px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 36px;
+
+    .price-txt {
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .price-flag {
+      color: #fff;
+      font-size: 26px;
+      font-weight: bold;
+      padding: 0 5px;
+    }
+
+    .price {
+      color: #fff;
+      font-size: 44px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      .decimal {
+        font-size: 36px;
+      }
+    }
+  }
+
+  .right {
+    height: 106px;
+    display: flex;
+    align-items: center;
+    padding-right: 42px;
+    color: #fff;
+    font-size: 24px;
+  }
+}
