@@ -89,13 +89,17 @@ export default class Recommend extends Component {
                             />
                           </div>
                           <div styleName="goods-info">
-                            <div styleName="goods-name">{v.title}</div>
-                            <div styleName="goods-price">
-                              <div styleName="price-flag">¥</div>
-                              <div styleName="price">{v.currentPriceStr}</div>
+                            <div>
+                              <div styleName="goods-name">{v.title}</div>
                             </div>
-                            <div styleName="goods-follow">
-                              {v.uvCount}次围观
+                            <div styleName="goods-price-ext-info">
+                              <div styleName="goods-price">
+                                <div styleName="price-flag">¥</div>
+                                <div styleName="price">{v.currentPriceStr}</div>
+                              </div>
+                              <div styleName="goods-follow">
+                                {v.uvCount}次围观
+                              </div>
                             </div>
                           </div>
                         </div>
