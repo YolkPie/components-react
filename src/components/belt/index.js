@@ -6,7 +6,7 @@ export default class Belt extends Component {
   render() {
     const { auctionBaseInfo } = this.props;
     const startPrice = auctionBaseInfo && auctionBaseInfo.startPrice;
-    const assessmentprice = auctionBaseInfo && auctionBaseInfo.assessmentprice;
+    const assessmentPrice = auctionBaseInfo && auctionBaseInfo.assessmentPrice;
     const price = formatPrice(startPrice);
     const priceArr = price.toString().split(".");
     const integer = priceArr[0];
@@ -29,10 +29,10 @@ export default class Belt extends Component {
             </div>
           </div>
 
-          {assessmentprice && assessmentprice > 0 && (
+          {assessmentPrice && assessmentPrice > 0 && (
             <div styleName="reference">
               <div styleName="reference-price-txt">拍卖参考价</div>
-              <div styleName="reference-price">¥{assessmentprice}</div>
+              <div styleName="reference-price">¥{assessmentPrice}</div>
             </div>
           )}
         </div>
