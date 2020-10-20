@@ -6,7 +6,8 @@ export default class Belt extends Component {
   render() {
     const { auctionBaseInfo } = this.props;
     const startPrice = auctionBaseInfo && auctionBaseInfo.startPrice;
-    const assessmentPrice = auctionBaseInfo && auctionBaseInfo.assessmentPrice;
+    const assessmentPrice =
+      (auctionBaseInfo && auctionBaseInfo.assessmentPrice) || "0";
     const price = formatPrice(startPrice);
     const priceArr = price.toString().split(".");
     const integer = priceArr[0];

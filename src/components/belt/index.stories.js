@@ -10,7 +10,7 @@ storiesOf("单品页组件|Belt", module)
   .add("商品腰带", () => {
     const auctionBaseInfo = {
       startPrice: "100000.99",
-      assessmentprice: "999"
+      assessmentPrice: 0
     };
     return <Belt auctionBaseInfo={auctionBaseInfo} />;
   });
