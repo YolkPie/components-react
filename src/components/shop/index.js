@@ -21,7 +21,7 @@ export default class Shop extends Component {
   render() {
     const { shopMessage } = this.props;
     return (
-      <div>
+      <div styleName="page-container">
         {shopMessage && (
           <div styleName="shop-container">
             <div
@@ -43,29 +43,61 @@ export default class Shop extends Component {
               <div styleName="shop-info">
                 <div styleName="shop-name">{shopMessage.shopName}</div>
                 <div styleName="shop-ext">
-                  {shopMessage.shopFollowCount && (
-                    <div styleName="shop-follow">
-                      {shopMessage.shopFollowCount}人关注
-                    </div>
-                  )}
-                  <div
-                    styleName="shop-contact"
-                    onClick={e => {
-                      if (e) {
-                        e.stopPropagation();
-                      }
-                      this.shopContact();
-                    }}
-                  >
-                    <div styleName="shop-contact-icon" />
-                    <div styleName="shop-contact-txt">联系客服</div>
-                  </div>
+                  <div styleName="shop-ext-title">店铺星级</div>
+                  <div styleName="shop-rate shop-rate-5"></div>
                 </div>
               </div>
               <div styleName="more-icon" />
             </div>
           </div>
         )}
+
+        <div styleName="shop-follow-container">
+          <div styleName="follow-wrap">
+            <div styleName="follow-value">
+              {shopMessage.shopFollowCount || 0}
+            </div>
+            <div styleName="follow-title">关注人数</div>
+          </div>
+          <div styleName="clear-line"></div>
+          <div styleName="follow-wrap">
+            <div styleName="follow-value">xx</div>
+            <div styleName="follow-title">在拍拍品</div>
+          </div>
+          <div styleName="clear-line"></div>
+          <div styleName="follow-wrap">
+            <div styleName="follow-value">xxx</div>
+            <div styleName="follow-title">历史拍品</div>
+          </div>
+        </div>
+
+        <div styleName="btn-container">
+          <div
+            styleName="btn-area"
+            onClick={e => {
+              if (e) {
+                e.stopPropagation();
+              }
+              this.shopContact();
+            }}
+          >
+            <div styleName="btn-area-icon contact" />
+            <div styleName="btn-area-txt">联系客服</div>
+          </div>
+
+          <div
+            styleName="btn-area"
+            onClick={e => {
+              if (e) {
+                e.stopPropagation();
+              }
+              this.gotoShop();
+            }}
+          >
+            <div styleName="btn-area-icon enter" />
+            <div styleName="btn-area-txt">进店逛逛</div>
+          </div>
+        </div>
       </div>
     );
   }
