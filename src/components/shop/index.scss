@@ -68,30 +68,42 @@
             background-repeat: no-repeat;
             background-size: contain;
           }
-          .shop-rate-5 {
+
+          .rate-5 {
             width: 130px;
             height: 26px;
             background-image: url("https://m.360buyimg.com/img/jfs/t1/131556/8/13260/5031/5f914035E06daa88b/51d1d3f112aa7709.png");
           }
-          .shop-rate-4 {
+          .rate-4 {
             width: 104px;
             height: 26px;
             background-image: url("https://m.360buyimg.com/img/jfs/t1/119487/18/19339/4266/5f914134E73a80349/10240a79cd58af0f.png");
           }
-          .shop-rate-3 {
+          .rate-3 {
             width: 78px;
             height: 26px;
             background-image: url("https://m.360buyimg.com/img/jfs/t1/121291/28/15745/3420/5f914161E2e8f9d68/7e01cef7de619772.png");
           }
-          .shop-rate-2 {
+          .rate-2 {
             width: 52px;
             height: 26px;
             background-image: url("https://m.360buyimg.com/img/jfs/t1/143154/14/11616/2515/5f91418fEe0da68ee/c2371508f82cfe7a.png");
           }
-          .shop-rate-1 {
-            width: 22px;
-            height: 22px;
+
+          .rate-1 {
+            width: 26px;
+            height: 26px;
             background-image: url("https://m.360buyimg.com/img/jfs/t1/144815/37/11603/1568/5f9141b9E14f7408d/fdd9b1f87dd3578a.png");
+          }
+          .rate-half-big {
+            width: 26px;
+            height: 26px;
+            background-image: url("https://m.360buyimg.com/img/jfs/t1/149214/11/11595/1557/5f916015E702fab2d/16d61597dd99c240.png");
+          }
+          .rate-half-small {
+            width: 26px;
+            height: 26px;
+            background-image: url("https://m.360buyimg.com/img/jfs/t1/134529/18/13328/1244/5f915fd7E8eb3bd64/f87309ea11cc9d3f.png");
           }
         }
       }

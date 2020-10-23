@@ -4,6 +4,18 @@ import { filterImg } from "../../utils";
 import { MPing } from "../../points";
 
 export default class Shop extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      shopStartIntegerBit: 0,
+      shopStartDecimal: 0
+    };
+  }
+
+  componentDidMount() {
+    this.getShopRate();
+  }
+
   gotoShop = () => {
     const { gotoShop } = this.props;
     if (gotoShop && typeof gotoShop === "function") {
@@ -18,8 +30,28 @@ export default class Shop extends Component {
     }
   };
 
+  getShopRate = () => {
+    const { shopMessage } = this.props;
+    let shopStartData = shopMessage && shopMessage.shopStartData;
+    shopStartData =
+      shopStartData &&
+      parseFloat(shopStartData)
+        .toFixed(2)
+        .toString();
+    if (shopStartData) {
+      const shopStartArr = shopStartData.split(".");
+      const integerBit = Number(shopStartArr[0]);
+      const decimal = Number(shopStartArr[1]);
+      this.setState({
+        shopStartIntegerBit: integerBit,
+        shopStartDecimal: decimal
+      });
+    }
+  };
+
   render() {
     const { shopMessage } = this.props;
+    const { shopStartIntegerBit, shopStartDecimal } = this.state;
     return (
       <div styleName="page-container">
         {shopMessage && (
@@ -42,10 +74,29 @@ export default class Shop extends Component {
               </div>
               <div styleName="shop-info">
                 <div styleName="shop-name">{shopMessage.shopName}</div>
-                <div styleName="shop-ext">
-                  <div styleName="shop-ext-title">店铺星级</div>
-                  <div styleName="shop-rate shop-rate-5"></div>
-                </div>
+                {(shopStartIntegerBit > 0 || shopStartDecimal > 0) && (
+                  <div styleName="shop-ext">
+                    <div styleName="shop-ext-title">店铺星级</div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row"
+                      }}
+                    >
+                      {shopStartIntegerBit > 0 && (
+                        <div
+                          styleName={`shop-rate rate-${shopStartIntegerBit}`}
+                        ></div>
+                      )}
+                      {shopStartDecimal > 0 && shopStartDecimal < 50 && (
+                        <div styleName="shop-rate rate-half-small"></div>
+                      )}
+                      {shopStartDecimal >= 50 && (
+                        <div styleName="shop-rate rate-half-big"></div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
               <div styleName="more-icon" />
             </div>
@@ -61,12 +112,16 @@ export default class Shop extends Component {
           </div>
           <div styleName="clear-line"></div>
           <div styleName="follow-wrap">
-            <div styleName="follow-value">xx</div>
+            <div styleName="follow-value">
+              {shopMessage.nowProductCount || 0}
+            </div>
             <div styleName="follow-title">在拍拍品</div>
           </div>
           <div styleName="clear-line"></div>
           <div styleName="follow-wrap">
-            <div styleName="follow-value">xxx</div>
+            <div styleName="follow-value">
+              {shopMessage.hisProductCount || 0}
+            </div>
             <div styleName="follow-title">历史拍品</div>
           </div>
         </div>
