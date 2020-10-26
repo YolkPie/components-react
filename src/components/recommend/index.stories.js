@@ -172,7 +172,7 @@ storiesOf("单品页组件|Recommend", module)
         supportJdShip: 0,
         templateType: 0,
         timeScore: 0.0,
-        title: "9.5新欧米茄omega星座50周年纪念款自动机械间金男表1308.35.00",
+        title: "9.5新欧",
         uvCount: 0,
         uvScore: 0.0,
         vendorId: 651175

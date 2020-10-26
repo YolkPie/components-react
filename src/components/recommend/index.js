@@ -76,7 +76,6 @@ export default class Recommend extends Component {
                       return (
                         <div
                           styleName="goods-wrap"
-                          style={{ flex: k === 1 ? "1" : "unset" }}
                           key={k.toString()}
                           onClick={() => {
                             this.gotoDetail(v);
