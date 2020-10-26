@@ -17,6 +17,16 @@ storiesOf("单品页组件|Shop", module)
       nowProductCount: 0,
       shopStartData: "4.50"
     };
+    const shopStartIntegerBit = 2;
+    const shopStartDecimal = 50;
+    const shopStartEmpty = ["", ""];
 
-    return <Shop shopMessage={shopMessage} />;
+    return (
+      <Shop
+        shopMessage={shopMessage}
+        shopStartIntegerBit={shopStartIntegerBit}
+        shopStartDecimal={shopStartDecimal}
+        shopStartEmpty={shopStartEmpty}
+      />
+    );
   });

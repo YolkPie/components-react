@@ -4,18 +4,6 @@ import { filterImg } from "../../utils";
 import { MPing } from "../../points";
 
 export default class Shop extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      shopStartIntegerBit: 0,
-      shopStartDecimal: 0
-    };
-  }
-
-  componentDidMount() {
-    this.getShopRate();
-  }
-
   gotoShop = () => {
     const { gotoShop } = this.props;
     if (gotoShop && typeof gotoShop === "function") {
@@ -30,28 +18,15 @@ export default class Shop extends Component {
     }
   };
 
-  getShopRate = () => {
-    const { shopMessage } = this.props;
-    let shopStartData = shopMessage && shopMessage.shopStartData;
-    shopStartData =
-      shopStartData &&
-      parseFloat(shopStartData)
-        .toFixed(2)
-        .toString();
-    if (shopStartData) {
-      const shopStartArr = shopStartData.split(".");
-      const integerBit = Number(shopStartArr[0]);
-      const decimal = Number(shopStartArr[1]);
-      this.setState({
-        shopStartIntegerBit: integerBit,
-        shopStartDecimal: decimal
-      });
-    }
-  };
-
   render() {
-    const { shopMessage } = this.props;
-    const { shopStartIntegerBit, shopStartDecimal } = this.state;
+    const {
+      shopMessage,
+      shopStartIntegerBit,
+      shopStartDecimal,
+      shopStartEmpty
+    } = this.props;
+
+    console.log("shopStartEmpty=", shopStartEmpty);
     return (
       <div styleName="page-container">
         {shopMessage && (
@@ -94,6 +69,11 @@ export default class Shop extends Component {
                       {shopStartDecimal >= 50 && (
                         <div styleName="shop-rate rate-half-big"></div>
                       )}
+                      {shopStartEmpty &&
+                        shopStartEmpty.length > 0 &&
+                        shopStartEmpty.map(() => {
+                          return <div styleName="shop-rate rate-empty"></div>;
+                        })}
                     </div>
                   </div>
                 )}
