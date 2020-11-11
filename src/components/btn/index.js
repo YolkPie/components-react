@@ -14,6 +14,7 @@ export default class Btn extends Component {
   render() {
     const { auctionBaseInfo } = this.props;
     const startPrice = auctionBaseInfo && auctionBaseInfo.startPrice;
+    const displayStatus = auctionBaseInfo && auctionBaseInfo.displayStatus;
     const price = formatPrice(startPrice);
     const priceArr = price.toString().split(".");
     const integer = priceArr[0];
@@ -21,31 +22,35 @@ export default class Btn extends Component {
 
     return (
       <div>
-        <div styleName="btn-container">
-          <div styleName="left">
-            <div styleName="price-txt">新人专享</div>
-            <div styleName="price-flag">¥</div>
-            {startPrice > 0 && (
-              <div styleName="price">
-                <div>{integer}</div>
-                {decimal && decimal > 0 && (
-                  <div styleName={`${integer > 0 ? "decimal" : ""}`}>
-                    .{decimal}
-                  </div>
-                )}
-              </div>
-            )}
+        {Number(displayStatus) !== 10 && (
+          <div styleName="btn-container">
+            <div styleName="left">
+              <div styleName="price-txt">新人专享</div>
+              <div styleName="price-flag">¥</div>
+              {startPrice > 0 && (
+                <div styleName="price">
+                  <div>{integer}</div>
+                  {decimal && decimal > 0 && (
+                    <div styleName={`${integer > 0 ? "decimal" : ""}`}>
+                      .{decimal}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+            <div
+              styleName="right"
+              onClick={() => {
+                this.gotoOrder();
+              }}
+            >
+              立即购买
+            </div>
           </div>
-          <div
-            styleName="right"
-            onClick={() => {
-              this.gotoOrder();
-            }}
-          >
-            立即购买
-          </div>
-        </div>
-        <div styleName="off-btn">商品已下架</div>
+        )}
+        {Number(displayStatus) === 10 && (
+          <div styleName="off-btn">很抱歉，商品已下架</div>
+        )}
       </div>
     );
   }

@@ -9,7 +9,8 @@ storiesOf("单品页组件|Btn", module)
   .addDecorator(withKnobs)
   .add("商品底部按钮", () => {
     const auctionBaseInfo = {
-      startPrice: "100000"
+      startPrice: "100000",
+      displayStatus: 10
     };
     return <Btn auctionBaseInfo={auctionBaseInfo} />;
   });
