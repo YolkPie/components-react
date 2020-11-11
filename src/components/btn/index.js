@@ -20,29 +20,32 @@ export default class Btn extends Component {
     const decimal = priceArr[1];
 
     return (
-      <div styleName="btn-container">
-        <div styleName="left">
-          <div styleName="price-txt">新人专享</div>
-          <div styleName="price-flag">¥</div>
-          {startPrice > 0 && (
-            <div styleName="price">
-              <div>{integer}</div>
-              {decimal && decimal > 0 && (
-                <div styleName={`${integer > 0 ? "decimal" : ""}`}>
-                  .{decimal}
-                </div>
-              )}
-            </div>
-          )}
+      <div>
+        <div styleName="btn-container">
+          <div styleName="left">
+            <div styleName="price-txt">新人专享</div>
+            <div styleName="price-flag">¥</div>
+            {startPrice > 0 && (
+              <div styleName="price">
+                <div>{integer}</div>
+                {decimal && decimal > 0 && (
+                  <div styleName={`${integer > 0 ? "decimal" : ""}`}>
+                    .{decimal}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+          <div
+            styleName="right"
+            onClick={() => {
+              this.gotoOrder();
+            }}
+          >
+            立即购买
+          </div>
         </div>
-        <div
-          styleName="right"
-          onClick={() => {
-            this.gotoOrder();
-          }}
-        >
-          立即购买
-        </div>
+        <div styleName="off-btn">商品已下架</div>
       </div>
     );
   }

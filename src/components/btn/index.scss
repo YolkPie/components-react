@@ -9,7 +9,6 @@
   z-index: 1;
   display: flex;
   flex-direction: row;
-
   .left {
     width: 516px;
     height: 100px;
@@ -63,4 +62,14 @@
   .right.disabled {
     background: rgba(226, 226, 226, 1);
   }
+}
+
+.off-btn {
+  width: 750px;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  background: rgba(222, 222, 222, 1);
+  font-size: 30px;
+  color: #ffffff;
 }
