@@ -71,8 +71,13 @@ export default class Shop extends Component {
                       )}
                       {shopStartEmpty &&
                         shopStartEmpty.length > 0 &&
-                        shopStartEmpty.map(() => {
-                          return <div styleName="shop-rate rate-empty"></div>;
+                        shopStartEmpty.map((val, i) => {
+                          return (
+                            <div
+                              styleName="shop-rate rate-empty"
+                              key={i.toString()}
+                            ></div>
+                          );
                         })}
                     </div>
                   </div>
