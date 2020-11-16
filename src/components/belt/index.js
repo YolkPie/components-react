@@ -15,7 +15,7 @@ export default class Belt extends Component {
     const decimal = priceArr[1];
     return (
       <div>
-        {Number(displayStatus) !== 10 && (
+        {Number(displayStatus) !== 10 ? (
           <div styleName="belt-container">
             <div styleName="price-wrap">
               <div styleName="price-container">
@@ -41,9 +41,9 @@ export default class Belt extends Component {
               )}
             </div>
           </div>
+        ) : (
+          <div styleName="off">商品已下架</div>
         )}
-
-        {Number(displayStatus) === 10 && <div styleName="off">商品已下架</div>}
       </div>
     );
   }

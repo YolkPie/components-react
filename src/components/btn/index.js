@@ -22,7 +22,7 @@ export default class Btn extends Component {
 
     return (
       <div>
-        {Number(displayStatus) !== 10 && (
+        {Number(displayStatus) !== 10 ? (
           <div styleName="btn-container">
             <div styleName="left">
               <div styleName="price-txt">新人专享</div>
@@ -47,8 +47,7 @@ export default class Btn extends Component {
               立即购买
             </div>
           </div>
-        )}
-        {Number(displayStatus) === 10 && (
+        ) : (
           <div styleName="off-btn">很抱歉，商品已下架</div>
         )}
       </div>
