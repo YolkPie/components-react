@@ -49,7 +49,7 @@ export default class Shop extends Component {
               </div>
               <div styleName="shop-info">
                 <div styleName="shop-name">{shopMessage.shopName}</div>
-                {(shopStartIntegerBit > 0 || shopStartDecimal > 0) && (
+                {shopStartIntegerBit >= 2 && (
                   <div styleName="shop-ext">
                     <div styleName="shop-ext-title">店铺星级</div>
                     <div

@@ -47,7 +47,7 @@ export default class Btn extends Component {
             立即购买
           </div>
         </div>
-        )}
+        {/* )} */}
         {/*{Number(displayStatus) === 10 && (*/}
         {/*<div styleName="off-btn">很抱歉，商品已下架</div>*/}
         {/*)}*/}
