@@ -4,6 +4,9 @@ node_js:
 cache:
   directories:
     - node_modules
+before_install:
+  - npm config set registry http://registry.m.jd.com
+  - npm get registry
 install:
   - npm install
 script:
