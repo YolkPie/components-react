@@ -63,13 +63,17 @@ export default class LiveTag extends Component {
   render() {
     const { timeCounter, curLiveData } = this.state;
     return curLiveData.code ? (
-      <div styleName="tag-container">
-        <span styleName={"tag-txt-box tag-" + curLiveData.code}>
-          <span styleName="tag-txt">{curLiveData.label}</span>
+      <div styleName="yp-livetag">
+        <span
+          styleName={
+            "yp-livetag__statusbox yp-livetag__status--" + curLiveData.code
+          }
+        >
+          <span styleName="yp-livetag__status">{curLiveData.label}</span>
         </span>
-        {timeCounter && <span styleName="tag-sub">{timeCounter}</span>}
+        {timeCounter && <span styleName="yp-livetag__mark">{timeCounter}</span>}
         {curLiveData.viewNum && !timeCounter && (
-          <span styleName="tag-sub">{curLiveData.viewNum}</span>
+          <span styleName="yp-livetag__mark">{curLiveData.viewNum}</span>
         )}
       </div>
     ) : null;

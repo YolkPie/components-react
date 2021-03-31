@@ -15,16 +15,16 @@ storiesOf("UI组件|LiveTag", module)
         value: 2,
         startTime: 1622977701000
       },
-      { code: "playing", label: "直播中11", value: 4, viewNum: "20人" },
-      { code: "replay", label: "回放22", value: 6, viewNum: "40人" },
-      { code: "willPlay", label: "即将开播33", value: 8, viewNum: "" }
+      { code: "playing", label: "直播中", value: 4, viewNum: "20人" },
+      { code: "replay", label: "回放", value: 6, viewNum: "40人" },
+      { code: "willPlay", label: "即将开播", value: 8, viewNum: "" }
     ];
     let liveValue = 2;
     const _countEnd = () => {
       liveValue = 4;
-      console.log("倒计时结束，5秒后刷新数据");
+      alert("倒计时结束，5秒后刷新数据");
       setTimeout(() => {
-        console.log("ajax refresh data");
+        alert("ajax refresh data");
       }, 1000 * 5);
     };
     return (
